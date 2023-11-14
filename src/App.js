@@ -24,8 +24,10 @@ class App_class_nm extends Component {
             ]
         }
     }
-    /** props 컴포넌트에 설정값을 외부에서 주입
-     * state 컴포넌트에 설정값을 내부에서 조작 */
+    /** props 컴포넌트에 설정값을 태그호출시 외부에서 props={ } 형태로 주입, read-only 내부에서 수정불가
+     * state 컴포넌트에 설정값을 내부 코드에서 조작, constructor()로 미리 값을 세팅하거나, setState를 통해 동적으로 값 변경
+     * 상위(부모) 컴포넌트가 하위(자식) 컴포넌트를 제어할 때 상위state값을 하위props로 주입하여 제어
+     * 하위(자식) 컴포넌트가 상위(부모) 컴포넌트를 제어할 때 이벤트로 내부값을 태그의props로 전달하고 거기서 setState 변경 */
     render() { // render() : class 안에 소속된 함수는 function을 생략해서 표현
         // 리액트에서는 props나 state가 바뀌면 해당되는 컴포넌트의 render함수가 호출되며 화면이 다시 그려진다
         console.log('App render');
