@@ -4,7 +4,7 @@ import './index.css';
 import App_tag from './App';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root')); // id가 root인 요소
 root.render(
   <React.StrictMode>
     <App_tag />
