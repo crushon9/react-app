@@ -6,9 +6,10 @@ class CreateContent extends Component {
             <article>
                 <h2>Create</h2>
                 <form action="/create_proc" method="post"
-                      onSubmit={function (e) { /*onSubmit : html 고유기능*/
+                      onSubmit={function (e) { /* onSubmit : html 태그 고유기능 */
                         e.preventDefault();
-                        alert("submit!!")
+                        this.props.onSubmit(e.target.title.value, e.target.desc.value); /* onSubmit : props로 정의한 함수 */
+                          /* e.target:form을가르킴 */
                 }.bind(this)}>
                     <p><input type="text" name="title" placeholder="title"/></p>
                     <p><textarea name="desc" placeholder="description"/></p>
