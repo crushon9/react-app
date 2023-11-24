@@ -1,7 +1,9 @@
 import {Component} from "react"; // react 라는 라이브러리에서 Component라는 클래스를 로딩
 import ToC from "./components/ToC" // ToC 라는 태그를 root폴더(src) 하위의 components 하위의 ToC.js 파일에서 가져온다
-import Content from "./components/Content"
 import Subject from "./components/Subject"
+import Control from "./components/Control"
+import ReadContent from "./components/ReadContent"
+import CreateContent from "./components/CreateContent";
 import './App.css';
 
 // jsx : JavaScript를 확장한 문법 (html 태그를 따옴표로 표현하지 않아도 됨)
@@ -33,11 +35,12 @@ class App_class_nm extends Component {
         /** render() (class 안에 소속된 함수는 function을 생략해서 표현)
          * 리액트에서는 props, state가 바뀌면 해당되는 컴포넌트의 render함수가 호출되며 화면이 다시 그려진다 */
         console.log('**App render**');
-        var _title, _desc, _li = null;
+        var _title, _desc, _li, _content = null;
         if (this.state.mode === 'welcome') {
             _title = this.state.welcome.title;
             _desc = this.state.welcome.desc;
             _li = '';
+            _content = <ReadContent title={_title} desc={_desc} li={_li}></ReadContent>
         } else if (this.state.mode === 'read') {
             for(var i = 0; i < this.state.contents.length; i++){
                 var content = this.state.contents[i];
@@ -48,6 +51,9 @@ class App_class_nm extends Component {
                     break;
                 }
             }
+            _content = <ReadContent title={_title} desc={_desc} li={_li}></ReadContent>
+        } else if (this.state.mode === 'create') {
+            _content = <CreateContent></CreateContent>
         }
         return ( // return 안에는 하나의 최상위 html 태그를 정의해야한다
             <div className="App_css">
@@ -72,7 +78,15 @@ class App_class_nm extends Component {
                     }.bind(this)}
                 >
                 </ToC>
-                <Content title={_title} desc={_desc} li={_li}></Content>
+                <Control
+                    onChangeMode={function (mode) {
+                        this.setState({
+                            mode:mode
+                        });
+                    }.bind(this)}
+                >
+                </Control>
+                {_content} {/* 컴포넌트를 변수로 제어해서 뿌리기*/}
             </div>
         );
     }

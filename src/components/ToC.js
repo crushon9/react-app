@@ -16,7 +16,7 @@ class ToC extends Component {
                             // this.props.onChangePage(e.target.dataset.id1);
                             this.props.onChangePage(id2);
                         }.bind(this, data[i].id/*id2*/)}
-                        /* bind(this) : 앞에 연결된 함수안의 this를 해당 컴포넌트obj로 bind
+                        /* bind(this) : 앞에 연결된 함수안의 this를 해당 컴포넌트obj로 bind 즉 this는 <ToC>
                          *              this 뒤에 파라미터를 추가하면 앞에 연결된 함수의 첫번째 순서부터 파라미터로 들어옴 e파라미터는 제일 마지막에 들어옴 */
                     >{data[i].title}</a>
                 </li>

@@ -1,13 +1,15 @@
 import {Component} from "react";
 
-class Content extends Component {
+class ReadContent extends Component {
     render() {
         var list = [];
         var li = this.props.li;
-        for (var i = 0; i < li.length; i++) {
-            list.push(
-                <li key={li[i]}>{li[i]}</li>
-            );
+        if (li != null) {
+            for (var i = 0; i < li.length; i++) {
+                list.push(
+                    <li key={li[i]}>{li[i]}</li>
+                );
+            }
         }
         return (
             <article>
@@ -22,4 +24,4 @@ class Content extends Component {
     }
 }
 
-export default Content;
+export default ReadContent;
