@@ -64,9 +64,7 @@ class App_class_nm extends Component {
                  * 컴포넌트안에 props는 변수처럼 실제값을 들고있는게 아니라 참조만하고있음
                  * render()안에서 props가 업데이트 됨 즉 주소값이 바뀜
                  * 그 전에 호출되는 shouldComponentUpdate안에서는 this.props는 기존데이터를 참조하고 있는 상태임
-                 * 객체를 새로 만들어서 새로운 참조를 해서 보내면 기존참조와 받은참조가 주소값이 다름 즉 값도 다름
-                 * 그러나 기존참조의 원본데이터를 변경하고 setState 하면 기존참조와 받은참조가 주소가같고 값도 같음
-                 * shouldComponentUpdate를 통과하고 render()안에서 기존참조에 받은참조를 덮어씌워서 데이터를 변경함
+                 * 그러나 기존참조의 원본데이터를 변경하면 shouldComponentUpdate안에서 기존참조와 받은참조가 주소가같고 값도 같음
                 this.state.contents.push(
                    {id:this.max_content_id, title:title, desc:desc}
                 );
