@@ -166,3 +166,7 @@ class App extends Component {
 }
 
 export default App;
+
+/** redux
+ * 컴퍼넌트는 props와 state로 데이터를 주고 받아서 서로 복잡하게 엉켜있음
+ * redux 기능을 사용하면 모든 컴퍼넌트가 중앙 데이터에 직접 연결되어 데이터를 주고받음 */
